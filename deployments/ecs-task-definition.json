@@ -1,15 +1,15 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:821175633958:task-definition/bookmanager:1",
+    "taskDefinitionArn": "arn:aws:ecs:eu-north-1:565105397593:task-definition/bookmanager:1",
     "containerDefinitions": [
         {
             "name": "bookmanager",
-            "image": "821175633958.dkr.ecr.us-east-1.amazonaws.com/cwm/bookmanager:latest",
+            "image": "565105397593.dkr.ecr.eu-north-1.amazonaws.com/cwm/bookmanager:1.0.1",
             "cpu": 0,
             "portMappings": [
                 {
-                    "name": "bookmanager-8080-tcp",
-                    "containerPort": 8080,
-                    "hostPort": 8080,
+                    "name": "bookmanager-80-tcp",
+                    "containerPort": 80,
+                    "hostPort": 80,
                     "protocol": "tcp",
                     "appProtocol": "http"
                 }
@@ -23,11 +23,11 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/bookmanager",
+                    "awslogs-group": "/ecs/",
                     "mode": "non-blocking",
                     "awslogs-create-group": "true",
                     "max-buffer-size": "25m",
-                    "awslogs-region": "us-east-1",
+                    "awslogs-region": "eu-north-1",
                     "awslogs-stream-prefix": "ecs"
                 },
                 "secretOptions": []
@@ -36,8 +36,7 @@
         }
     ],
     "family": "bookmanager",
-    "taskRoleArn": "arn:aws:iam::821175633958:role/ecsTaskExecutionRole",
-    "executionRoleArn": "arn:aws:iam::821175633958:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::565105397593:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
     "revision": 1,
     "volumes": [],
@@ -57,9 +56,6 @@
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.28"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.task-iam-role"
         },
         {
             "name": "ecs.capability.execution-role-ecr-pull"
@@ -83,12 +79,13 @@
         "FARGATE"
     ],
     "cpu": "1024",
-    "memory": "3072",
+    "memory": "2048",
     "runtimePlatform": {
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-11-23T13:12:52.965Z",
-    "registeredBy": "arn:aws:iam::821175633958:root",
+    "registeredAt": "2025-05-16T10:45:16.925Z",
+    "registeredBy": "arn:aws:iam::565105397593:root",
+    "enableFaultInjection": false,
     "tags": []
 }
